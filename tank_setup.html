@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+         <title>Starter Fin<!--TO DO--></title> 
+        <meta name="robots" content="index, follow">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Abby Napier">
+        <meta name="description" content=""><!--TO DO-->
+        <link rel="stylesheet" href="styles.css">
+	    <script src="myScript.js"></script>
+	    <meta property="og:title" content="!"><!--TO DO-->
+	    <meta property="og:url" content=""><!--TO DO-->
+	    <meta property="og:type" content="Website">
+	    <meta property="og:image" content=""><!--TO DO-->
+        <link rel="icon" type="image/png" href="" sizes=""><!--TO DO-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <header>
+                <a class="skip-link" href='#main'>Skip to main content</a><!--CSS THIS-->
+                <h1>Starter Fin</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Tank Set Up</a></li>
+                        <li><a href="fish.html">Fish</a></li>
+                        <li><a href="problems.html">Tank Problems</a></li>
+                        <li><a href="links.html">More information</a></li>
+                    </ul>
+                </nav>
+        </header>
+        <main id="main">
+            <section id="selecting-fish-tanks">
+            
+            <h3>Fish Tanks</h3>
+            <h4>Tank Size</h4>
+            <p>When choosing a tank size, you need to keep tank maintenance, cost, space, and fish species in mind. Larger tanks cost more money and are hard to keep up. Fish bowls without filters and heaters are not 
+                appropriate for any fish species. Five gallons is the minimum tank size for a fish. Smaller tanks are only appropriate for snails and shrimp. 
+            </p>
+
+            <h4>Selecting Fish</h4>
+            <p>It is important to get fish that are appropriate for your tank size. Over stocked tanks can lead to ammonia spikes in the tank water. Fish kept in too small of tanks can 
+                have severe stress, stunted growth, deformities, and early death. Check out more about fish tank size on our <a href="#">Fish Page</a>. Community tanks are when 
+                multiple fish species are kept together. This is a common practice. However, only Compatible fish should be kept together. Some fish species 
+                are aggressive and should not be kept with other species. The <a href="#">Fish Page</a> has more information on compatible species.
+            </section>
+            <section id="fish-count">
+                <h4>See how many fish will fit in your tank</h4>
+                <p>It is recommended to keep one fish inch of fish per gallon.</p>
+                <input type="number" id="gallons" placeholder="Enter tank size (gallons)">
+                <button onclick="fishCalc()">Show Fish Options</button>
+                 <p id="result"></p>
+            </section>
+
+            <h3>Setting Up Your Tank's Interior</h3>
+            <ul>
+                <li>Substrate - Add 2 to 3 inches of gravel, sand, or aquasoil to the bottom of the the tank</li>
+                <li>Decorations - Add fake or live plants, hiding spots for fish, and other fish friendly decorations to the inside of your fish tank. </li>
+                <li>Filter - All tanks need a filter to take out toxins and waste from the water. Make sure your filter is appropriate for your tank size.</li>
+                <li>Heater - Most tropical fish need water heaters. It is important to choose one that is appropriate for your tank size.</li>
+            </ul>
+
+            <section id="tank-water">
+                <h3>Preparing Tank Water</h3>
+                <p>Add substrate, decorations, a filter, and a heater to your tank.</p>
+                <p>Fill with water. Either use tap water treatment or use bottled water. Add water conditioner. </p>
+                <p>Your tank needs to cycle. This is the process where the correct bacteria that fish need grow in your tank. These bacteria convert ammonia to nitrite to nitrate. This process takes 2-6 weeks. No fish should be added before this process is complete. The cycle can be started by letting the filter run continuously. You can also add a bottled bacterial starter or a controlled ammonia source. 
+                <br>Water parameters are the conditions of the water in your aquarium. Proper water conditions are essential to keeping your fish healthy.  Buy a water testing kit. Using your water-testing kit, test the water every few days until your parameters meet the values below. They must be stable before adding fish. 
+                </p>
+                <h4>For most community freshwater fish, these are the desired water parameters. </h4>
+                <p>The fish tank temperature should be 75-80 degrees. Stable water temperature is more important than hitting an exact number. It is also important to note that some fish prefer cooler water. It is important to look up what your fish species prefers. Fish that prefer different temperatures should not be kept together in a tank. 
+                <br>pH Levels of a tank should be 6.5-7.5. The tank should be slightly acidic to neutral for most tropical fish. 
+                <br>Ammonia levels should be 0ppm. Any detectable ammonia levels are toxic to fish. 
+                <br>Nitrite(NO<sub>2</sub><sup>-</sup>)levels should be 0 ppm. A small amount of nitrite (NO2-)   is dangerous to fish.
+                <br>Nitrate (NO<sub>3</sub><sup>-</sup>) levels should be below 20ppm. Up to 40ppm can be tolerated shot term but lower is preferred. 
+                <br>General Hardness (GH) should be 4-12 dGH. This is the mineral content of your water. Most tropical fish prefer moderate hardness. 
+                <br>Carbonate Hardness (KH) should be 3-8 dKH. This helps keep the pH stable. 
+                </p>
+            </section>
+
+            
+            <section id="add-fish">
+                <h3>Adding Fish</h3>
+                <p>Once your tank has a stable temperature and water parameters, you can begin adding fish. It is important not to add too many at once, as this can throw off
+                    your water parameters. Start by adding just a few fish at a time. Fish need to adjust to their new tank's temperature slowly. A great way to do this 
+                    is by placing the fish into the aquarium while it is still in the bag you brought it home in. This allows for the fish to slowly adjust to the new tank's water.
+                    Once the water in the bag matches the temperature of your fish tank, you can release your fish into the tank. 
+                </p>
+            </section>
+            
+
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
