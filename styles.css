@@ -71,3 +71,6 @@ table {
     text-align: center;
 }
 
+#fish-problems img, #tank-problems img{
+    max-width: 600px;
+}
