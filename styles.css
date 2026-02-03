@@ -55,8 +55,10 @@ table {
     cursor: pointer;
     display: flex;
     flex-direction: column; 
+    margin: auto;
     align-items: center;  
-               
+    max-width: 450px;    
+            
 }
 
 .fish-item img {
