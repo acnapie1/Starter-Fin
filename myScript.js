@@ -1,54 +1,80 @@
-"use strict";
+function fishCalc() {
+    const gallons = parseInt(document.getElementById("gallons").value);
 
-function fishCalc(numbers){
-     const gallons = document.getElementById("gallons").value;
-     const SMALL_SIZE = 1;   
-     const MEDIUM_SIZE = 3;
-     const LARGE_SIZE = 5;
+    const SMALL_SIZE = 1;   
+    const MEDIUM_SIZE = 3;
+    const LARGE_SIZE = 5;
+    const MAX_COMBOS = 5; 
 
-      if (gallons <= 4) {
+    if (gallons <= 4) {
         document.getElementById("result").textContent =
             "Please enter a valid tank size.";
         return;
     }
-     let output = `
-        <strong>Estimated Stocking Options:</strong><br>
+
+    let output = `
+        <strong>Stocking Options:</strong><br>
         <em>(Based on ${SMALL_SIZE}” small, ${MEDIUM_SIZE}” medium, ${LARGE_SIZE}” large fish)</em><br><br>
     `;
 
 
-    const allLarge = Math.floor(gallons / LARGE_SIZE);
-    if (allLarge > 0) {
-        output += `• ${allLarge} large fish<br>or<br>`;
-    }
-
-
-    if (gallons >= LARGE_SIZE) {
-        output += `• 1 large + ${gallons - LARGE_SIZE} small fish<br>or<br>`;
-    }
-
-  
-    if (gallons >= MEDIUM_SIZE * 2) {
-        output += `• 2 medium + ${gallons - (MEDIUM_SIZE * 2)} small fish<br>or<br>`;
-    }
-
-
+    output += `• ${Math.floor(gallons / SMALL_SIZE)} small fish<br>`;
     if (gallons >= MEDIUM_SIZE) {
-        output += `• 1 medium + ${gallons - MEDIUM_SIZE} small fish<br>or<br>`;
+        output += `• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish<br>`;
+    }
+    if (gallons >= LARGE_SIZE) {
+        output += `• ${Math.floor(gallons / LARGE_SIZE)} large fish<br>`;
     }
 
 
-    const allMedium = Math.floor(gallons / MEDIUM_SIZE);
-    if (allMedium > 0) {
-        output += `• ${allMedium} medium fish<br>or<br>`;
+    let count = 0;
+    let maxLarge = Math.floor(gallons / LARGE_SIZE);
+    for (let large = maxLarge; large >= 1 && count < MAX_COMBOS; large--) {
+        let remaining = gallons - (large * LARGE_SIZE);
+        let maxMedium = Math.floor(remaining / MEDIUM_SIZE);
+        if (maxMedium > 0) {
+            output += `• ${maxMedium} medium + ${large} large<br>`;
+        } 
+        count++;
     }
 
 
-    output += `• ${gallons} small fish<br>`;
+    count = 0;
+    let maxMediumOnly = Math.floor(gallons / MEDIUM_SIZE);
+    for (let medium = maxMediumOnly; medium >= 1 && count < MAX_COMBOS; medium--) {
+        let remaining = gallons - (medium * MEDIUM_SIZE);
+        if (remaining > 0) {
+            output += `• ${medium} medium + ${remaining} small<br>`;
+        }
+        count++;
+    }
+
+
+    count = 0;
+    let maxLargeOnly = Math.floor(gallons / LARGE_SIZE);
+    for (let large = maxLargeOnly; large >= 1 && count < MAX_COMBOS; large--) {
+        let remaining = gallons - (large * LARGE_SIZE);
+        if (remaining > 0) {
+            output += `• ${large} large + ${remaining} small<br>`;
+        }
+        count++;
+    }
+
+
+    count = 0;
+    for (let large = Math.floor(gallons / LARGE_SIZE); large >= 1 && count < MAX_COMBOS; large--) {
+        for (let medium = Math.floor((gallons - (large * LARGE_SIZE)) / MEDIUM_SIZE); 
+             medium >= 1 && count < MAX_COMBOS; medium--) {
+            let remaining = gallons - (large * LARGE_SIZE + medium * MEDIUM_SIZE);
+            if (remaining >= 1) {
+                output += `• ${large} large + ${medium} medium + ${remaining} small<br>`;
+                count++;
+            }
+        }
+    }
 
     document.getElementById("result").innerHTML = output;
 }
-
 $(document).ready(function () {
 
     const fishData = {
@@ -68,7 +94,10 @@ $(document).ready(function () {
         fish14: "Cherry barbs grow to be 2 in. They like temperatures of 73–81°F. They are a schooling fish that need to be kept in groups of 6+. They need 10+ gallons for a group of 6+. They are a peaceful community fish unlike most barbs. They get along well with other peaceful community fish.",
         fish15: "Dwarf Gourami grow to be 3.5 in. They prefer tank temperatures of 75–82°F. They need a tank size of 20+ gallons for adequate swimming space. Gouramis are peaceful, slow moving fish. They do well with other peaceful community fish that will not nip their fins. They do well with neon tetras, cory catfish, and peaceful livebearers.",
         fish16: "Rainbowfish grow to be 4-6 in depending on the species. They come in several colorful species. They like tank temperatures of 74–80°F. They are a schooling fish that need to be kept in groups of 6+. They need a tank size of 30+ for a group of 6+. They are an active, peaceful community fish. They get along well with peaceful community fish.",
-        fish17: ""
+        fish17: "Convict Cichlids grow to be 6 in. They prefer tank temperatures of 74–80°F. One single Convict Cichlid needs a tank size of 30+ gallons. They are very aggressive and highly territorial. They are best kept alone, with one other convict cichlid, plecos, or other aggressive fish that can defend themselves like other oscars or cichlids breeds. They should not be kept with fish that are slow moving or have long fins. If kept with other fish they need a larger tank size.",
+        fish18: "Electric Blue Acara grow to be 7 in. They like tank temperatures of 73–82°F. They need a tank size of 40+ gallons. They are relatively peaceful compared to most other cichlids. Due to this, they can be kept with medium sized peaceful community fish. Some fish that they go well with are angelfish, larger tetra breeds, barbs, plecos, cory catfish, and rams.",
+        fish19: "Rainbow shark grow to be 6 in. Their ideal tank water is 74–80°F. They need a tank size of 55+ gallons. You should only keep a single rainbow shark or five+. They are territorial with each other. If kept with any other bottom dwelling fish they need to be in a large tank. They can be kept with fast semi-aggressive fish like tiger barbs, some tetras, rainbowfish, danios, or angelfish(in large tanks).",
+        fish20: "Kuhli Loach grow to be 4 in. They like water temperatures of 75–85°F. Kuhli loaches are social and should live in groups of 5+ to feel secure. They need a tank size of 20+ gallons. They are peaceful, shy, and silly bottom dwelling fish. They eat things off the substrate of the tank. They are a peaceful community fish. They get along well with peaceful, non aggressive, tank mates that cannot eat them. "
     };
 
    
