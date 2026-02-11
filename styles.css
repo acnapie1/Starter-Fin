@@ -74,3 +74,8 @@ table {
 #fish-problems img, #tank-problems img{
     max-width: 600px;
 }
+
+header img{
+    width: 200px;
+    height: 100px;
+}
