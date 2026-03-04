@@ -416,11 +416,26 @@ body.light-mode #facts{
     display: grid;
     text-align: center;
     padding: 1rem 0 2rem 0;
-    background-image: url("images/water.png");
+    background-color: #B8D3D9;
     background-size: cover;
     background-position: center;
     min-height: 300px;
     max-width: 100%;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #B8D3D9 3%,
+        #B8D3D9 97%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #B8D3D9 3%,
+        #B8D3D9 97%,
+        transparent 100%
+    );
 }
 
 .stock-grid {
@@ -461,33 +476,61 @@ body.light-mode #facts{
 
 }
 /*Fish page*/
+
+#fish-page h1, #fish-page h2{
+    margin: 30px;
+    text-align: center;
+}
+
+.fish-types span{
+    font-size: 20px;
+    font-family: var(--body-font);
+    background-color: var(--lt-blue);
+    display: block;
+    width: 100%;
+    padding: 10px 0;  
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 .fish-item {
     cursor: pointer;
     display: flex;
     flex-direction: column; 
-    margin: auto;
+    margin: 2rem auto;
     align-items: center;  
-    max-width: 450px;    
+    max-width: 450px;   
             
 }
 
 .fish-item img {
-    max-width: 100%;       
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .fish-info {
     display: none;
     max-width: 450px;      
-    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: var(--body-font);
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    line-height: 25px;
+    border: 2px solid var(--lt-blue);
 }
 
-#fish-problems img, #tank-problems img{
-    max-width: 600px;
-}
 
 
 
 /*Problems Page*/
+#fish-problems img, #tank-problems img{
+    max-width: 600px;
+}
+
 
 /*Links page*/
 
@@ -641,7 +684,6 @@ header img{
 
 
 }
-
 
 /* MEDIA QUERY (large) */
 @media screen and (min-width: 900px){
@@ -819,6 +861,17 @@ margin-top: -2rem;
     grid-row: 1/ span 1;
 }
 
+.fish-types{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.fish-types img{
+    height: 300px;
+
+}
+
 }
 
 
@@ -829,5 +882,12 @@ margin-top: -2rem;
 .stock-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.fish-types{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    
 }
 }
