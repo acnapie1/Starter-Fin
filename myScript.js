@@ -1,50 +1,75 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('light-toggle'); 
+  const body = document.body; 
+
+
+  if (!body.classList.contains('light-mode') && !body.classList.contains('dark-mode')) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; 
+    body.classList.add(prefersDark ? 'dark-mode' : 'light-mode'); 
+  }
+
+  toggleButton.addEventListener('click', function() { 
+    if (body.classList.contains('dark-mode')) { 
+      body.classList.remove('dark-mode');
+      body.classList.add('light-mode');
+    } else {
+      body.classList.remove('light-mode');
+      body.classList.add('dark-mode');
+    }
+  });
+});
+
 function fishCalc() {
-    const gallons = parseInt(document.getElementById("gallons").value);
+    const gallons = parseFloat(document.getElementById("gallons").value);
+
 
     const SMALL_SIZE = 1;   
     const MEDIUM_SIZE = 3;
     const LARGE_SIZE = 5;
     const MAX_COMBOS = 5; 
 
-    if (gallons <= 4) {
+    if (isNaN(gallons) || gallons <= 4) {
         document.getElementById("result").textContent =
             "Please enter a valid tank size.";
         return;
     }
 
     let output = `
-        <strong>Stocking Options:</strong><br>
-        <em>(Based on ${SMALL_SIZE}” small, ${MEDIUM_SIZE}” medium, ${LARGE_SIZE}” large fish)</em><br><br>
+        <strong>Stocking Options:</strong>
+        <em>(Based on ${SMALL_SIZE}” small, ${MEDIUM_SIZE}” medium, ${LARGE_SIZE}” large fish)</em>
+        <div class="stock-grid">
     `;
 
+  
+    output += `<div class="stock-item">• ${Math.floor(gallons / SMALL_SIZE)} small fish</div>`;
 
-    output += `• ${Math.floor(gallons / SMALL_SIZE)} small fish<br>`;
     if (gallons >= MEDIUM_SIZE) {
-        output += `• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish<br>`;
+        output += `<div class="stock-item">• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish</div>`;
     }
+
     if (gallons >= LARGE_SIZE) {
-        output += `• ${Math.floor(gallons / LARGE_SIZE)} large fish<br>`;
+        output += `<div class="stock-item">• ${Math.floor(gallons / LARGE_SIZE)} large fish</div>`;
     }
 
-
+    
     let count = 0;
     let maxLarge = Math.floor(gallons / LARGE_SIZE);
     for (let large = maxLarge; large >= 1 && count < MAX_COMBOS; large--) {
         let remaining = gallons - (large * LARGE_SIZE);
         let maxMedium = Math.floor(remaining / MEDIUM_SIZE);
         if (maxMedium > 0) {
-            output += `• ${maxMedium} medium + ${large} large<br>`;
-        } 
+            output += `<div class="stock-item">• ${maxMedium} medium + ${large} large</div>`;
+        }
         count++;
     }
 
-
+    
     count = 0;
     let maxMediumOnly = Math.floor(gallons / MEDIUM_SIZE);
     for (let medium = maxMediumOnly; medium >= 1 && count < MAX_COMBOS; medium--) {
         let remaining = gallons - (medium * MEDIUM_SIZE);
         if (remaining > 0) {
-            output += `• ${medium} medium + ${remaining} small<br>`;
+            output += `<div class="stock-item">• ${medium} medium + ${remaining} small</div>`;
         }
         count++;
     }
@@ -55,24 +80,32 @@ function fishCalc() {
     for (let large = maxLargeOnly; large >= 1 && count < MAX_COMBOS; large--) {
         let remaining = gallons - (large * LARGE_SIZE);
         if (remaining > 0) {
-            output += `• ${large} large + ${remaining} small<br>`;
+            output += `<div class="stock-item">• ${large} large + ${remaining} small</div>`;
         }
         count++;
     }
 
 
     count = 0;
-    for (let large = Math.floor(gallons / LARGE_SIZE); large >= 1 && count < MAX_COMBOS; large--) {
-        for (let medium = Math.floor((gallons - (large * LARGE_SIZE)) / MEDIUM_SIZE); 
-             medium >= 1 && count < MAX_COMBOS; medium--) {
+    for (
+        let large = Math.floor(gallons / LARGE_SIZE);
+        large >= 1 && count < MAX_COMBOS;
+        large--
+    ) {
+        for (
+            let medium = Math.floor((gallons - (large * LARGE_SIZE)) / MEDIUM_SIZE);
+            medium >= 1 && count < MAX_COMBOS;
+            medium--
+        ) {
             let remaining = gallons - (large * LARGE_SIZE + medium * MEDIUM_SIZE);
             if (remaining >= 1) {
-                output += `• ${large} large + ${medium} medium + ${remaining} small<br>`;
+                output += `<div class="stock-item">• ${large} large + ${medium} medium + ${remaining} small</div>`;
                 count++;
             }
         }
     }
 
+    output += `</div>`;
     document.getElementById("result").innerHTML = output;
 }
 $(document).ready(function () {

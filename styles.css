@@ -51,6 +51,416 @@ table {
 
 /*Code by Abby Napier */
 
+:root{
+    --lt-blue: #32A9D9;
+    --dk-blue: #002844;
+    --orange: #f29f05;
+    --white: #FBFFF8;
+    --black: #21110F;
+    --gray: #516570;
+    --body-font: "Inter Tight", sans-serif;
+    --header-font:  "Stylish", sans-serif;
+}
+
+/*Site wide*/
+
+/*Skip Link*/
+.skip-link{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+main{
+    margin: auto;
+    max-width: 1200px;
+}
+
+p, ul{
+    font-size: 18px;
+    font-family: var(--body-font);
+}
+
+h1{
+    font-size: 40px;
+    font-family: var(--header-font);
+}
+
+h2{
+    font-size: 35px;
+    font-family: var(--header-font);
+}
+
+h3{
+    font-size: 30px;
+    font-family: var(--header-font);
+}
+
+h4{
+    font-size: 25px;
+    font-family: var(--header-font);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--dk-blue);
+    position: relative;
+}
+
+header img{
+    margin: 25px;
+    width: 100px;
+    height: 50px;
+    max-width: 100%;
+    
+}
+
+b{
+    font-weight: bold;
+}
+
+/*Navigation*/
+
+nav a{
+    text-decoration: none;
+    font-family: var(--header-font);
+    font-size: 20px;
+    text-align: center;
+    color: var(--white);
+    position: relative;   
+    z-index: 1;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: 50%;            
+    right: 3rem;
+    margin-top: 1rem;
+    transform: translateY(-50%); 
+    display: block; 
+}
+
+
+.nav-toggle span {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s ease;
+    transform-origin: center;
+}
+
+
+.nav-menu {
+    position: absolute;   
+    top: 100%;            
+    right: 5px;
+    width: 100%;
+    display: none;
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+    background-color: var(--dk-blue);
+    outline: solid 3px var(--orange);
+    z-index: 99;  
+    width: 9rem;
+    flex-direction: column;
+    line-height: 40px;
+}
+
+
+.nav-menu.active {
+    display: flex;
+}
+
+
+.nav-toggle span:nth-child(1) {
+    top: 6px;
+}
+
+.nav-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.nav-toggle span:nth-child(3) {
+    top: 22px;
+}
+
+.nav-toggle.open span:nth-child(1) {
+    top: 14px;
+    transform: rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    top: 14px;
+    transform: rotate(-45deg);
+}
+
+
+
+
+/*Light and dark modes for background*/
+body.light-mode {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+body.dark-mode {
+  background-color: var(--dk-blue);
+  color: var(--white);
+}
+
+
+/*Light/Dark toggle*/
+#light-toggle {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dk-blue);
+  border: 1px solid var(--gray);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  appearance: none;
+  z-index: 1;
+}
+
+/*Footer*/
+footer{
+    background-color: var(--orange);
+    color: var(--dk-blue);
+}
+
+.footerNav{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.footerNav ul{
+    list-style: none;
+    line-height: 30px;
+}
+
+.footerNav a{
+    color: var(--dk-blue); 
+}
+
+
+.socialText{
+ text-align: center;
+ padding-top: 1rem;
+}
+
+.social-icons{
+    padding-top: 1rem;
+    
+}
+
+.copyright p{
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+/*Home Page*/
+#home_page{
+    background-color: var(--dk-blue);
+    color: var(--white);
+}
+
+#home_page img{
+    max-width: 100%;
+    margin: 3rem 0;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--dk-blue) 10%,
+        var(--dk-blue) 90%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--dk-blue) 10%,
+        var(--dk-blue) 90%,
+        transparent 100%
+    );
+}
+
+#home_page h1{
+    text-align: center;
+}
+
+#home_page main p{
+    line-height: 25px;
+    text-align: center;
+    padding: 0 20px;
+    margin: auto;
+}
+
+#facts{
+    background-color: var(--white);
+    color: var(--black);
+    padding: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.522), 0 6px 20px 0 rgba(0, 0, 0, 0.438);
+    border: solid 3px var(--gray);
+}
+
+#facts h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#facts ul{
+    margin: 0 50px;
+    list-style-type: circle;
+}
+
+#facts li{
+    margin-top: 20px;
+}
+
+#facts li::marker {
+  color: var(--lt-blue);
+}
+
+body.dark-mode #facts{
+    background-color: var(--dk-blue);
+    color: var(--white);
+}
+
+body.light-mode #facts{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+
+
+/*Tank Set Up Page*/
+
+#tank-setup main{
+    margin: auto;
+    padding: 30px;
+    line-height: 30px;
+}
+
+#tank-setup main a{
+    color: var(--orange);
+}
+
+#tank-setup main img{
+    max-width: 100%; 
+    height: auto;
+    padding-bottom: 1rem;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#tank-setup h1, #tank-setup h2, #tank-setup h3, #tank-setup h4{
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#result{
+    padding-top: 1rem;
+}
+
+#calcButton{
+    padding: 5px;
+    background-color: var(--orange);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: var(--body-font);
+    color: var(--dk-blue);
+    border: none;
+    box-shadow:  1px 1px 1px  #CC5500;
+    width: 10rem;
+    margin: auto;
+}
+
+#calcButton:hover{
+    box-shadow: inset 3px 3px 3px  #CC5500;
+}
+
+#fish-count{
+    display: grid;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    background-image: url("images/water.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    max-width: 100%;
+}
+
+.stock-grid {
+    margin-top: 1rem;
+}
+
+
+#gallons{
+    width: 12.5rem;
+    font-size: 18px;
+    font-family: var(--body-font);
+    margin:20px auto;
+}
+
+#tank-setup main ul{
+    margin: 0 50px;
+    list-style-type: disc;
+
+}
+
+
+#tank-setup main li::marker {
+  color: var(--lt-blue);
+  font-size: 1.5em;
+}
+
+#setup-water-fish{
+    margin-top: 4rem;
+}
+
+#add-fish, #water-parameters, #tank-interior, #water-prep, #selecting-fish, #selecting-fish-tanks{
+    border: solid 1px var(--lt-blue);
+    margin: 1rem 0;
+}
+
+#add-fish p, #water-parameters p, #tank-interior ul, #water-prep p, #selecting-fish p, #selecting-fish-tanks p{
+    margin: 20px;
+
+}
+/*Fish page*/
 .fish-item {
     cursor: pointer;
     display: flex;
@@ -62,7 +472,7 @@ table {
 }
 
 .fish-item img {
-    max-width: 450px;       
+    max-width: 100%;       
 }
 
 .fish-info {
@@ -75,7 +485,349 @@ table {
     max-width: 600px;
 }
 
+
+
+/*Problems Page*/
+
+/*Links page*/
+
+/* MEDIA QUERY (medium) */
+@media screen and (min-width: 600px){
+
+/*Nav and Header*/
+.nav-toggle {
+    display: none; 
+}
+
+.nav-menu {
+    position: static;
+    display: flex; 
+    gap: clamp(0.5em, 4vw, 2em); 
+    width: 100%;
+    background: transparent;
+    outline: none; 
+    
+}
+
+nav a {
+    font-size: clamp(20px, 2vw, 18px); 
+}
+
+nav a::before,
+nav a::after {
+  content: "";
+  position: absolute;
+
+  width: 15px;
+  height: 15px;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.277);
+
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(6);
+    opacity: 0;
+  }
+}
+
+nav a:hover::after {
+  animation: ripple 1s ease-out;
+}
+
+nav a:hover::before {
+  animation: ripple 2s ease-out .20s;
+}
+
 header img{
     width: 200px;
     height: 100px;
+}
+
+
+#light-toggle{
+  right: 2rem;
+
+}
+
+
+/*Footer*/
+.footerNav{
+    display: flex;
+    justify-content: flex-end; 
+}
+.footerNav ul{
+    list-style: none;
+    line-height: 30px;
+    margin-top: -2rem;
+    padding-bottom: 2rem;
+    padding-right: 3rem;
+}
+
+.footerNav a{
+    color: var(--dk-blue); 
+}
+
+
+.socialText{
+    padding-top: 1.5rem;
+    padding-left: 3rem;
+    text-align: left;
+}
+
+.social-icons{
+    padding-top: 1.5rem;
+    padding-left: 3rem;
+    float: left;
+}
+
+.copyright{
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 1rem;
+    margin-top: -3rem;
+}
+
+/*homepage*/
+#home_page main p{
+    max-width: 800px;
+}
+
+#facts ul{
+    max-width: 800px;
+    margin: 0 200px;
+}
+
+/*Tank setup page*/
+.stock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#fish-count:focus-within{
+    background-image: url("images/fish-bubbles.png");
+    background-color: #B8D3D9;
+    max-width: 100%;
+    color: var(--dk-blue);
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #B8D3D9 3%,
+        #B8D3D9 97%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        #B8D3D9 3%,
+        #B8D3D9 97%,
+        transparent 100%
+    );
+}
+
+
+}
+
+
+/* MEDIA QUERY (large) */
+@media screen and (min-width: 900px){
+
+/*Nav*/
+.nav-toggle {
+    display: none; 
+}
+
+.nav-menu {
+    gap: 2em;         
+    flex-direction: row; 
+}
+
+nav a {
+    font-size: 20px;  
+}
+
+/*Tank setup page*/
+.stock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#setup-tank h2{
+    margin-bottom: 20px;
+}
+
+#selecting-fish-tanks{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#selecting-fish-tanks h3{
+    margin-top: -2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#selecting-fish-tanks img{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;   
+}
+
+#selecting-fish-tanks p{
+    margin-top: 2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+    margin-right: 20px;
+}
+
+#selecting-fish{
+    display: grid;
+    padding-top: 2rem;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+     padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#selecting-fish h3{
+    margin-top: -2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#selecting-fish img{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;   
+}
+
+#selecting-fish p{
+    margin-top: 2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+     margin-right: 20px;
+}
+
+#tank-interior{
+    display: grid;
+    padding-top: 4rem;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+     padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#tank-interior ul{
+    padding-top: 2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+     margin-right: 20px;
+}
+
+#tank-interior img{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#tank-interior h3{
+margin-top: -2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#water-prep{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#water-prep p{
+   padding-top: 2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+     margin-right: 20px;
+}
+
+#water-prep img{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#water-prep h3{
+margin-top: -2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#water-parameters{
+    padding-top: 2rem;
+     padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#water-parameters p{
+    margin: 20px;
+}
+
+#add-fish{
+    display: grid;
+    padding-top: 5rem;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+     padding-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    margin-bottom: 3rem;
+}
+
+#add-fish p{
+   padding-top: 2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+    margin-right: 20px;
+}
+
+#add-fish img{
+    grid-column: 1/ span 1;
+    grid-row: 1/ span 1;
+}
+
+#add-fish h3{
+margin-top: -2rem;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 1;
+}
+
+}
+
+
+/* MEDIA QUERY (xl) */
+@media screen and (min-width: 1200px){
+
+/*Tank setup page*/
+.stock-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 }
