@@ -218,9 +218,6 @@ nav a{
     transform: rotate(-45deg);
 }
 
-
-
-
 /*Light and dark modes for background*/
 body.light-mode {
   background-color: var(--white);
@@ -273,7 +270,6 @@ footer{
 .footerNav a{
     color: var(--dk-blue); 
 }
-
 
 .socialText{
  text-align: center;
@@ -339,7 +335,7 @@ footer{
     border: solid 3px var(--gray);
 }
 
-#facts h3{
+#facts h2{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -366,8 +362,6 @@ body.light-mode #facts{
     background-color: var(--white);
     color: var(--black);
 }
-
-
 
 /*Tank Set Up Page*/
 
@@ -466,7 +460,6 @@ body.dark-mode #fish-count{
 
 }
 
-
 .setup-ul li::marker {
   color: var(--lt-blue);
   font-size: 1.5em;
@@ -504,7 +497,6 @@ body.dark-mode #fish-count{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
 .fish-item {
     cursor: pointer;
     display: flex;
@@ -533,12 +525,7 @@ body.dark-mode #fish-count{
     border: 2px solid var(--lt-blue);
 }
 
-
-
-
 /*Problems Page*/
-
-
 #problems-page  main{
     margin: auto;
     padding: 30px;
@@ -547,6 +534,8 @@ body.dark-mode #fish-count{
 
 #problems-page  main a{
     color: var(--orange);
+    font-size: 20px;
+    font-family: var(--body-font);
 }
 
 #problems-page  main img{
@@ -563,7 +552,6 @@ body.dark-mode #fish-count{
     padding: 1rem 0;
     text-align: center;
 }
-
 
 #problems-page main ul{
     list-style-type: disc;
@@ -597,14 +585,20 @@ body.dark-mode #fish-count{
     padding: 0 30px;
 }
 
+#water-a{
+    text-align: center;
+}
+
 /*Mini Nav*/
 
 .mini-nav{
     list-style-type: disc;
     line-height: 25px;
-    
 }
 
+.on-page{
+    font-size: 23px;
+}
 
 .mini-nav-div{
     display: flex;
@@ -624,6 +618,43 @@ body.dark-mode #fish-count{
 
 /*Links page*/
 
+#links-page main a{
+    color: var(--orange);
+    font-family: var(--body-font);
+    font-size: 20px;
+    display: inline-block;
+}
+
+#links-page main p{
+    font-size: 20px;
+}
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.links-grids img {
+    display: none;
+}
+
+.links-grids {
+    display: grid;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#links-page h1{
+    margin: 30px 0;
+    text-align: center;
+}
+
+#tank-care{
+    margin-bottom: 50px;
+}
 /* MEDIA QUERY (medium) */
 @media screen and (min-width: 600px){
 
@@ -696,7 +727,6 @@ header img{
 
 }
 
-
 /*Footer*/
 .footerNav{
     display: flex;
@@ -713,7 +743,6 @@ header img{
 .footerNav a{
     color: var(--dk-blue); 
 }
-
 
 .socialText{
     padding-top: 1.5rem;
@@ -777,6 +806,61 @@ header img{
     grid-template-columns: auto auto; 
     column-gap: 50px;
 }
+
+/*Links Page*/
+
+.content {
+    grid-column: 2;
+    text-align: center;
+}
+
+.links-grids {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.links-grids img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+}
+
+#large-plant{
+    width: 100px;
+    margin-left: 100px;
+}
+
+.left-img {
+    grid-column: 1;
+}
+
+.right-img {
+    grid-column: 3;
+}
+
+.placeholder-right {
+    grid-column: 3;
+}
+
+.placeholder-left {
+    grid-column: 1;
+}
+
+.placeholder-left,
+.placeholder-right {
+    max-width: 400px;
+    height: 150px; 
+}
+
+#tankSetup{
+    margin-top: -40px;
+}
+
+#buy-supplies{
+     margin-top: -40px;
+}
+
 
 }
 
@@ -967,8 +1051,6 @@ margin-top: -2rem;
 
 }
 
-
-
 #fish-problems h2{
     margin-bottom: 20px;
 }
@@ -1039,7 +1121,6 @@ margin-top: -2rem;
     grid-row: 4 / span 1;
 }
 
-
 #nippedfin{
     display: grid;
     column-gap: 20px;
@@ -1073,12 +1154,10 @@ margin-top: -2rem;
     grid-row: 3 / span 1;
 }
 
-
 #nippedfin ul {
    grid-column: 2 / span 1;
     grid-row: 4 / span 1;
 }
-
 
 #dropsy{
     display: grid;
@@ -1107,8 +1186,6 @@ margin-top: -2rem;
     grid-row: 2 / span 1;
     margin-right: 20px;
 }
-
-
 
 #swimbladder{
     display: grid;
@@ -1142,7 +1219,6 @@ margin-top: -2rem;
     grid-row: 3/span 1;
 }
 
-
 #swim-bladder-ul-1 {
    grid-column: 2 / span 1;
     grid-row: 4/span 1;
@@ -1153,7 +1229,6 @@ margin-top: -2rem;
    grid-column: 2 / span 1;
     grid-row: 5/span 1;
 }
-
 
 #swim-bladder-h5-2{
    grid-column: 2 / span 1;
@@ -1170,7 +1245,6 @@ margin-top: -2rem;
    grid-row: 8/span 1;
    margin-bottom: 20px;
 }
-
 
 #tank-problems h2{
     margin-bottom: 20px;
@@ -1234,7 +1308,6 @@ margin-top: -2rem;
     margin-bottom: 20px;
 }
 
-
 #algae-bloom{
     display: grid;
     column-gap: 20px;
@@ -1291,7 +1364,6 @@ margin-top: -2rem;
     grid-row: 9/ span 1;
     margin-bottom: 20px;
 }
-
 
 #new-tank-syn{
     display: grid;
