@@ -1,8 +1,9 @@
+//Light/dark mode toggle
 document.addEventListener('DOMContentLoaded', function() {
   const toggleButton = document.getElementById('light-toggle'); 
   const body = document.body; 
 
-
+//Website sees if computer prefers light or dark mode and uses the preferred setting.
   if (!body.classList.contains('light-mode') && !body.classList.contains('dark-mode')) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; 
     body.classList.add(prefersDark ? 'dark-mode' : 'light-mode'); 
@@ -19,39 +20,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+//Tank size/ stocking options calculator 
 function fishCalc() {
     const gallons = parseFloat(document.getElementById("gallons").value);
-
-
     const SMALL_SIZE = 1;   
     const MEDIUM_SIZE = 3;
     const LARGE_SIZE = 5;
     const MAX_COMBOS = 5; 
-
+    //If the tank size is less than 4 gallons throw error
     if (isNaN(gallons) || gallons <= 4) {
         document.getElementById("result").textContent =
             "Please enter a valid tank size.";
         return;
     }
-
+    //Informs user of the fish sizes used
     let output = `
         <strong>Stocking Options:</strong>
         <em>(Based on ${SMALL_SIZE}” small, ${MEDIUM_SIZE}” medium, ${LARGE_SIZE}” large fish)</em>
         <div class="stock-grid">
     `;
 
-  
+    //Small fish only options 
     output += `<div class="stock-item">• ${Math.floor(gallons / SMALL_SIZE)} small fish</div>`;
+    //Medium fish only options
+    output += `<div class="stock-item">• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish</div>`;
+    //Large fish only options
+    output += `<div class="stock-item">• ${Math.floor(gallons / LARGE_SIZE)} large fish</div>`;
 
-    if (gallons >= MEDIUM_SIZE) {
-        output += `<div class="stock-item">• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish</div>`;
-    }
 
-    if (gallons >= LARGE_SIZE) {
-        output += `<div class="stock-item">• ${Math.floor(gallons / LARGE_SIZE)} large fish</div>`;
-    }
-
-    
+    //Large and medium fish options
     let count = 0;
     let maxLarge = Math.floor(gallons / LARGE_SIZE);
     for (let large = maxLarge; large >= 1 && count < MAX_COMBOS; large--) {
@@ -63,7 +60,7 @@ function fishCalc() {
         count++;
     }
 
-    
+    //Small and medium fish options
     count = 0;
     let maxMediumOnly = Math.floor(gallons / MEDIUM_SIZE);
     for (let medium = maxMediumOnly; medium >= 1 && count < MAX_COMBOS; medium--) {
@@ -74,7 +71,7 @@ function fishCalc() {
         count++;
     }
 
-
+    //Large and small fish options
     count = 0;
     let maxLargeOnly = Math.floor(gallons / LARGE_SIZE);
     for (let large = maxLargeOnly; large >= 1 && count < MAX_COMBOS; large--) {
@@ -85,7 +82,7 @@ function fishCalc() {
         count++;
     }
 
-
+    //Small, medium, and large fish options
     count = 0;
     for (
         let large = Math.floor(gallons / LARGE_SIZE);
@@ -104,12 +101,14 @@ function fishCalc() {
             }
         }
     }
-
+    //Results
     output += `</div>`;
     document.getElementById("result").innerHTML = output;
 }
-$(document).ready(function () {
 
+//Fish information function
+$(document).ready(function () {
+    //Each fish's bio
     const fishData = {
         fish1: "The Betta Fish's max size is 3 in. <br><br>They come in a variety of colors and tail shapes. <br><br>Their ideal tank temperature is 76–82°F. <br><br>They need a tank size of 5+ gallons.<br><br>Due to their aggressive nature, their idea companions are snails and sometimes shrimp.",
         fish2: "Goldfish can reach over 18 in. (If their size is an issue, look into platys or mollies. They are a great similar looking alternative) There is a variety of goldfish species. <br><br>They prefer cooler water. Their ideal tank temperature is 65–75°F. <br><br>For smaller species, like fancy goldfish, the minimum tank size is 35+ gallons. Larger breeds like common goldfish need at least 50+ gallons. <br><br>They are very messy fish. They need their tank cleaned often and a strong filter. Goldfish grow at a fast rate. <br><br>The best companions for goldfish are other goldfish. They prefer cool water which eliminates many other tank mate options. There are a few other cool water friendly fish they can be kept with but other goldfish is ideal. However, they will eat any other tank mates they can fit in their mouth.",
@@ -133,15 +132,17 @@ $(document).ready(function () {
         fish20: "Kuhli Loach grow to be 4 in. <br><br>They like water temperatures of 75–85°F. <br><br>Kuhli loaches are social and should live in groups of 5+ to feel secure. <br><br>They need a tank size of 20+ gallons. <br><br>They are peaceful, shy, and silly bottom dwelling fish. They eat things off the substrate of the tank. <br><br>They are a peaceful community fish. They get along well with peaceful, non aggressive, tank mates that cannot eat them. "
     };
    
+    //Keep bio closed until told otherwise 
     for (const id in fishData) {
         $("#" + id).append(
             `<div class="fish-info" style="display:none;">${fishData[id]}</div>`
         );
     }
 
-
+    //Show fish bio when clicked
     $(document).on("click", ".fish-item", function () {
         const infoDiv = $(this).find(".fish-info"); 
+        //Close any other open fish bio
         $(".fish-info").not(infoDiv).slideUp();     
         infoDiv.slideToggle();                
     });
