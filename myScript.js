@@ -41,11 +41,11 @@ function fishCalc() {
     `;
 
     //Small fish only options 
-    output += `<div class="stock-item">• ${Math.floor(gallons / SMALL_SIZE)} small fish</div>`;
+    output += `<div class="stock-item"><span class="dot"></span>  ${Math.floor(gallons / SMALL_SIZE)} small fish</div>`;
     //Medium fish only options
-    output += `<div class="stock-item">• ${Math.floor(gallons / MEDIUM_SIZE)} medium fish</div>`;
+    output += `<div class="stock-item"><span class="dot"></span>  ${Math.floor(gallons / MEDIUM_SIZE)} medium fish</div>`;
     //Large fish only options
-    output += `<div class="stock-item">• ${Math.floor(gallons / LARGE_SIZE)} large fish</div>`;
+    output += `<div class="stock-item"><span class="dot"></span>  ${Math.floor(gallons / LARGE_SIZE)} large fish</div>`;
 
 
     //Large and medium fish options
@@ -55,7 +55,7 @@ function fishCalc() {
         let remaining = gallons - (large * LARGE_SIZE);
         let maxMedium = Math.floor(remaining / MEDIUM_SIZE);
         if (maxMedium > 0) {
-            output += `<div class="stock-item">• ${maxMedium} medium + ${large} large</div>`;
+            output += `<div class="stock-item"><span class="dot"></span> ${maxMedium} medium + ${large} large</div>`;
         }
         count++;
     }
@@ -66,7 +66,7 @@ function fishCalc() {
     for (let medium = maxMediumOnly; medium >= 1 && count < MAX_COMBOS; medium--) {
         let remaining = gallons - (medium * MEDIUM_SIZE);
         if (remaining > 0) {
-            output += `<div class="stock-item">• ${medium} medium + ${remaining} small</div>`;
+            output += `<div class="stock-item"><span class="dot"></span>  ${medium} medium + ${remaining} small</div>`;
         }
         count++;
     }
@@ -77,7 +77,7 @@ function fishCalc() {
     for (let large = maxLargeOnly; large >= 1 && count < MAX_COMBOS; large--) {
         let remaining = gallons - (large * LARGE_SIZE);
         if (remaining > 0) {
-            output += `<div class="stock-item">• ${large} large + ${remaining} small</div>`;
+            output += `<div class="stock-item"><span class="dot"></span>  ${large} large + ${remaining} small</div>`;
         }
         count++;
     }
@@ -96,7 +96,7 @@ function fishCalc() {
         ) {
             let remaining = gallons - (large * LARGE_SIZE + medium * MEDIUM_SIZE);
             if (remaining >= 1) {
-                output += `<div class="stock-item">• ${large} large + ${medium} medium + ${remaining} small</div>`;
+                output += `<div class="stock-item"><span class="dot"></span>  ${large} large + ${medium} medium + ${remaining} small</div>`;
                 count++;
             }
         }
@@ -142,7 +142,7 @@ $(document).ready(function () {
     //Show fish bio when clicked
     $(document).on("click", ".fish-item", function () {
         const infoDiv = $(this).find(".fish-info"); 
-        //Close any other open fish bio
+        //Close any other open fish bio 
         $(".fish-info").not(infoDiv).slideUp();     
         infoDiv.slideToggle();                
     });
