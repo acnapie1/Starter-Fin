@@ -464,7 +464,7 @@ body.dark-mode #fish-count{
 }
 
 .setup-ul{
-    margin: 0 50px;
+    padding-left: 20px;
     list-style-type: disc;
 
 }
