@@ -54,7 +54,8 @@ table {
 :root{
     --lt-blue: #32A9D9;
     --dk-blue: #002844;
-    --orange: #f29f05;
+    --dk-orange: #B34406;
+    --lt-orange: #f29f05;
     --white: #FBFFF8;
     --black: #21110F;
     --gray: #516570;
@@ -253,7 +254,7 @@ body.dark-mode {
 
 /*Footer*/
 footer{
-    background-color: var(--orange);
+    background-color: var(--lt-orange);
     color: var(--dk-blue);
 }
 
@@ -371,9 +372,16 @@ body.light-mode #facts{
     line-height: 30px;
 }
 
-#tank-setup main a{
-    color: var(--orange);
+
+#tank-setup.light-mode main a {
+  color: var(--dk-orange);
+ 
 }
+
+#tank-setup.dark-mode main a {
+  color: var(--lt-orange);
+}
+
 
 #tank-setup main img{
     max-width: 100%; 
@@ -404,7 +412,7 @@ body.light-mode #facts{
 
 #calcButton{
     padding: 5px;
-    background-color: var(--orange);
+    background-color: var(--lt-orange);
     cursor: pointer;
     border-radius: 5px;
     font-size: 18px;
@@ -555,6 +563,16 @@ body.dark-mode #fish-count{
     font-family: var(--body-font);
 }
 
+#problems-page.light-mode main a {
+  color: var(--dk-orange);
+ 
+}
+
+#problems-page.dark-mode main a {
+  color: var(--lt-orange);
+}
+
+
 #problems-page  main img{
     max-width: 100%; 
     height: auto;
@@ -624,9 +642,19 @@ body.dark-mode #fish-count{
 
 .mini-nav a{
     text-decoration: none;
-    color: var(--orange);
     margin: 0 auto;
 }
+
+
+body.light-mode .mini-nav a{
+  color: var(--dk-orange);
+ 
+}
+
+body.dark-mode .mini-nav a{
+  color: var(--lt-orange);
+}
+
 
 .mini-nav li::marker {
   color: var(--lt-blue);
@@ -636,10 +664,18 @@ body.dark-mode #fish-count{
 /*Links page*/
 
 #links-page main a{
-    color: var(--orange);
     font-family: var(--body-font);
     font-size: 20px;
     display: inline-block;
+}
+
+#links-page.light-mode main a{
+  color: var(--dk-orange);
+ 
+}
+
+#links-page.dark-mode main a{
+  color: var(--lt-orange);
 }
 
 #links-page main p{
