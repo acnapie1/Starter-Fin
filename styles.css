@@ -82,7 +82,7 @@ main{
 }
 
 p, ul{
-    font-size: 18px;
+    font-size: 20px;
     font-family: var(--body-font);
 }
 
@@ -431,11 +431,6 @@ body.light-mode #facts{
 #tank-setup input{
     border: 2px solid var(--dk-blue);
 }
-
-input:hover{
-     border: 2px solid purple;
-}
-
 
 #calcButton:hover{
     box-shadow: inset 3px 3px 3px  #CC5500;
