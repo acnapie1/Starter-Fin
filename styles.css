@@ -559,7 +559,7 @@ body.dark-mode #fish-count{
 }
 
 /*Problems Page*/
-#problems-page  main{
+#problems-page main{
     margin: auto;
     padding: 30px;
     line-height: 30px;
@@ -620,7 +620,7 @@ body.dark-mode #fish-count{
     margin: 1rem 0;
 }
 
-#problems-page p, #problems-page h5{
+#problems-page main p, #problems-page h5{
     padding: 0 20px;
 } 
 
