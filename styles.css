@@ -878,17 +878,8 @@ header img{
     display: none; 
 }
 
-.nav-menu {
-    gap: 2em;         
-    flex-direction: row; 
-}
-
 nav a {
     font-size: 20px;  
-}
-
-.nav-toggle {
-    display: none; 
 }
 
 .nav-menu {
@@ -897,7 +888,8 @@ nav a {
     width: 100%;
     background: transparent;
     outline: none; 
-    
+    gap: 2em;         
+    flex-direction: row; 
 }
 
 nav a::before,
